@@ -1,0 +1,104 @@
+
+{% extends 'base.html.twig' %}
+{% block body %}
+
+  <link rel="stylesheet" href="{{asset('css/facture.css')}}" />
+    </main>
+<div class="facture" style="margin-top:100px;">
+    <section class="flex">
+    
+        <dl>
+            <dt>Facture N:</dt>
+            <dd>{{facture.reference}}</dd>
+            <dt>Date de facturation</dt>
+            <dd>{{facture.date | date('d/m/Y')}}</dd>
+        </dl>
+
+    </section>
+
+    <section class="flex">
+        <dl class="bloc">
+            <dt>Facturé à:</dt>
+            <dd>Company X &amp; Son Inc.<br>
+                2789 Some street,<br>
+                Big City, Québec, J3X 1J1<dl>
+                    <dt>Nom </dt>
+                     {% if facture.type == 1 %}
+                    <dd>{{facture.fournisseurs.nom}} &nbsp{{facture.fournisseurs.prenom}}</dd>
+                    <dt>Téléphone</dt>
+                    <dd>{{facture.fournisseurs.tel}}</dd>
+                    <dt>Email</dt>
+                    <dd>{{facture.fournisseurs.email}}</dd>
+                    {% elseif facture.type == 0 %}
+                    <dd>{{facture.clients.nom}} &nbsp{{facture.clients.prenom}}</dd>
+                    <dt>Téléphone</dt>
+                    <dd>{{facture.clients.tel}}</dd>
+                    <dt>Email</dt>
+                    <dd>{{facture.clients.email}}</dd>  
+                    {% endif %}
+                </dl>
+            </dd>
+        </dl>
+        <dl class="bloc">
+            <dt>Description de service:</dt>
+            <dd>{{facture.description}}</dd>
+            <dt>Période totale:</dt>
+            <dd>24 Mai au 2 Juin 2014</dd>
+        </dl>
+    </section>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Produit</th>
+                <th>Description</th>
+                <th>Quantity</th>
+                <th>Pix</th>
+                <th>Montant</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for produits in facture.produits %}
+            <tr>
+               <td>					 
+                    {{produits.title}}				                        
+               </td> 
+                 <td>					 
+                    {{produits.description}}				                        
+               </td> 
+                <td>						 
+                    {{produits.quantity}}				                        
+                    
+               </td> 
+                 <td>					 
+                    {{produits.prix}}				                        
+                  
+               </td> 
+                <td>	 
+                 {{produits.prix * produits.quantity}}	    
+               </td> 
+            </tr>
+             {% endfor %}
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="3">− Faire les chèques payable au nom de moi −</td>
+                <td>Total:</td>
+                <td></td>
+            </tr>
+        </tfoot>
+    </table>
+    <footer>
+        <p>Moi – Informatique − Développement WEB | <a href="">joseroux.com</a></p>
+        <p>1777 some street in the woods, Wentworth-Nord, Qc, J0T 1Y0 | Tél. 450-555-1000 | <a href="mailto:">mail@me.com</a></p>
+    </footer>
+    <a  href="{{url('facture_imprimer',{id:facture.id})}}" type="button" class="btn  btn-primary"><i class="far fa-file-pdf"></i></a>
+    </div>
+</body>
+    </main>
+
+{% endblock %}
+
+
+
+ 

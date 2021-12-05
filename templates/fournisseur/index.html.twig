@@ -1,0 +1,99 @@
+{% extends 'base.html.twig' %} {% block title %}List des Fournisseur!{% endblock %} {% block body %}
+
+<body id="app-container" class="menu-default show-spinner">
+   {% include "includes/body_dash.html.twig" %}
+  <main>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12">
+                    <h1>List des fournisseur</h1>
+                 <div class="top-right-button-container">
+                         <button data-toggle="modal" data-target="#exampleModal" class="btn btn-primary top-right-button mr-1" onclick="change('{{path('fournisseur_create')}}')"> AJOUTER NOUVEAU </button>
+                        </div>
+						     <div class="mb-2">
+                        <a class="btn pt-0 pl-0 d-inline-block d-md-none" data-toggle="collapse" href="#displayOptions"
+                            role="button" aria-expanded="true" aria-controls="displayOptions">
+                            Display Options
+                            <i class="simple-icon-arrow-down align-middle"></i>
+                        </a>
+                        <div class="collapse dont-collapse-sm" id="displayOptions">
+                           
+                            <div class="d-block d-md-inline-block">
+                               
+                                <div class="search-sm  d-inline-block float-md-left mr-1 mb-1 align-top">
+                                    <input class="form-control datepicker" placeholder="Rechercher par nom">
+                                </div>
+                            </div>
+                         
+                        </div>
+                    </div>
+                    <div class="separator mb-5"></div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <table class="data-table data-table-scrollable responsive nowrap"
+                                data-order="[[ 1, &quot;desc&quot; ]]">
+                                <thead>
+								
+                                    <tr>
+								     	<th>Nom</th>
+                                        <th>Prenom</th>
+                                        <th>Tel</th>
+                                        <th>Cin</th>
+										<th>Action</th>
+                                        
+                                    </tr>
+                                </thead>
+                                <tbody>
+								{% for fournisseur in fournisseur %}
+								
+                                    <tr>
+								      	<td>
+                                            <p class="text-muted">{{fournisseur.nom}}</p>
+                                        </td>
+                                        <td>
+                                            <p class="list-item-heading">{{fournisseur.prenom}}</p>
+                                        </td>
+										
+                                        <td>
+                                            <p class="text-muted">{{fournisseur.tel}}</p>
+                                        </td>
+                                        <td>
+                                            <p class="text-muted">{{fournisseur.cin}}</p>
+                                        </td>
+                                       
+										 <td>
+                                            <p class="list-item-heading">
+                                                <div class="btn-group btn-group-sm  mr-2  mb-1" role="group">
+                                                 <a class="btn  btn-primary" data-toggle="modal" data-target="#exampleModal" onclick="change('{{path('fournisseur_edit',{id:fournisseur.id})}}')"><i class="fas fa-edit"></i></a>
+                                                  <a href="{{path('fournisseur_delete',{id:fournisseur.id})}}"
+                                                        class="btn  btn-danger" onclick="if(!confirm('Are you sure ?')) { return false; }"><i class="fas fa-trash-alt"></i></a>
+                                                    <a href="{{path('fournisseur_show',{id:fournisseur.id})}}" class="btn  btn-warning"><i class="fas fa-eye"></i></a>
+                                                </div>
+                                            </p>
+                                        </td>
+                                    </tr>
+									{% endfor %}
+                                </tbody>
+                            </table>
+							  <nav class="mt-4 mb-3">
+                        <ul class="pagination justify-content-center mb-0">
+                           {{knp_pagination_render(fournisseur)}}
+                        </ul>
+                    </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- end row -->
+        </div>
+        <!-- end container-fluid-->
+    </main>
+    <!-- end main-->{% include "fournisseur/create.html.twig" %} {% include "includes/footer.html.twig" %}
+    <script src="js/changeUrl.js"></script>
+    <script src="js/scripts.js"></script>
+</body> {% endblock %}

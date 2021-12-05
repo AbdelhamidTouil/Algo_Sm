@@ -1,0 +1,56 @@
+
+<!-- Modal -->{{ form_start(formProduit) }}
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title" id="exampleModalLabel">Formulaire de Produits</h5>
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"> <span aria-hidden="true">&times;</span> </button>
+			</div>
+			<div class="modal-body">
+
+			<div class="form-row">
+				 <div class="form-group col-md-6">
+				<label class="form-group has-float-label mb-4">
+					{{form_row(formProduit.title ,{'attr':{'class':'form-control'}})}}
+				</label>
+				</div>
+				<div class="form-group col-md-6">
+				<label class="form-group has-float-label mb-4">
+					{{form_row(formProduit.prix ,{'attr':{'class':'form-control'}})}}
+				</label>
+				</div>
+			</div>
+				<div class="form-row">
+				 <div class="form-group col-md-6">
+
+				<label class="form-group has-float-label mb-4">
+					{{form_row(formProduit.quantity ,{'attr':{'class':'form-control'}})}}
+				</label>
+				</div>
+				<div class="form-group col-md-6">
+				
+				<label class="form-group has-float-label mb-4">
+				   {{form_row(formProduit.categorie ,{'attr':{'class':'form-control'}})}}
+				</label>
+				</div></div>
+				<label class="form-group has-float-label mb-4">
+				    {{form_row(formProduit.description ,{'attr':{'class':'form-control'}})}}
+				</label>
+                    <form class="md-form">
+					<div class="file-field">
+						<div class=" btn-sm float-left">
+						{{form_row(formProduit.image)}}
+						</div>
+					</div>
+					</form>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+				<div class="d-flex justify-content-start align-items-center">
+					<button class="btn btn-primary  btn-shadow" type="submit">AJOUTER</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</div> {{ form_end(formProduit) }}

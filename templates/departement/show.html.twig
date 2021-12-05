@@ -1,0 +1,70 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Profile!{% endblock %}
+
+{% block body %}
+<body id="app-container" class="menu-default show-spinner">
+{% include "includes/body_dash.html.twig" %}
+<div class="space50"></div>
+ <main>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12">
+                    <div class="mb-2">
+                     
+                        <div class="text-zero top-right-button-container">
+                             <a class="btn  btn-primary" data-toggle="modal" data-target="#exampleModal" onclick="change('{{path('departement_edit',{id:departement.id})}}')">
+                                Modifier
+                            </a>
+                          
+                        </div>
+                    <div class="mb-2">
+                        <h1>{{departement.title}}</h1>
+                      
+                    </div>
+                
+                    </div>
+                     
+                  
+                    </div>
+                  
+
+                    <div class="separator mb-5"></div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="mb-4">
+                                <a href="#">
+                                    <p class="list-item-heading mb-1 color-theme-1">info</p>
+                                    <p class="mb-1 text-muted text-small">Nom departement</p>
+                                    <p class="mb-4 text-small">{{departement.title}}</p>
+                                    <p class="mb-1 text-muted text-small">Date de creation</p>
+                                    <p class="mb-4 text-small">{{departement.createdAt | date('d/m/Y')}}</p>
+                                    <div class="separator mb-5"></div>
+                                    <p class="mb-1 text-muted text-small">Utilisateurs</p>
+                                    {% for user in departement.users %}
+                                        <p class="mb-4 text-small">{{user.nom}}</p>
+                                    {% endfor %}
+                                    
+                                </a>
+                                <div class="separator"></div>
+                            </div>
+                           
+
+                         
+                         
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </main>
+    <!-- end main-->{% include "departement/create.html.twig" %} {% include "includes/footer.html.twig" %}
+    <script src="js/changeUrl.js"></script>
+    <script src="js/scripts.js"></script>
+</body> {% endblock %}

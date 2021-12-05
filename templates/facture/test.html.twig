@@ -1,0 +1,122 @@
+
+   
+  {% extends 'base.html.twig' %}
+     {% block title %}Facture!{% endblock %}
+{% block body %}
+
+    
+<body id="app-container" class="menu-default show-spinner">
+{% include "includes/body_dash.html.twig" %}
+  <main>
+    
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12">
+                <div class="separator mb-5"></div>
+            </div>
+        </div>
+            <div class="row">
+
+                <div class="col-12 mb-4">
+                    <h5 class="mb-4">Formulaire de facture</h5>
+                    <div class="card mb-4">
+                        <div id="smartWizardDefault">
+                            <ul class="card-header">
+                                <li><a href="#defaultStep1">Client || Cournisseur<br /><small>First step description</small></a></li>
+                                <li><a href="#defaultStep2">Step 2<br /><small>Second step description</small></a></li>
+                                <li><a href="#defaultStep3">Step 3<br /><small>Third step description</small></a></li>
+                            </ul>
+
+                            <div class="card-body">
+    
+
+                            {{ form_start(formFacture) }}
+
+                        <div id="defaultStep1">
+                                    <h4 class="pb-2">Étape 1 Contenu ...</h4>
+                                    <div id="type">
+                                    {{ form_row(formFacture.type ,{'label': 'type' , 'attr':
+	                                    {'onclick': 'myFunction()' ,'class': 'form-control'}  })}}   
+                                   </div>
+
+                                    <div id="fournisseur" style="display: none">
+                                    {{ form_row(formFacture.fournisseurs ,{'label': 'fournisseurs' , 'attr':
+	                                     {'class': 'form-control'}})}}
+                                   </div>
+
+                                    <div id="client" style="display: none">
+                                   {{ form_row(formFacture.clients ,{'label': 'client' , 'attr':
+	                                      {'class': 'form-control'}})}}
+                                   </div>
+                         </div>
+
+                        <div id="defaultStep2" style="display: none">
+                                    <h4 class="pb-2">Étape 2 Contenu ...</h4>
+                                    {{ form_row(formFacture.title ,{'label': 'Titre' , 'attr':
+	                                    {'class': 'form-control'}})}}
+                                    {{ form_row(formFacture.reference ,{'label': 'Reference' , 'attr':
+	                                    {'class': 'form-control'}})}}
+                                    {{ form_row(formFacture.paymement ,{'label': 'Payement' , 'attr':
+	                                    {'class': 'form-control'}})}}
+                                        {{ form_row(formFacture.date ,{'label': 'Date de creation' , 'attr':
+	                                     {'class': 'form-control'}})}}
+                        </div>
+
+                        <div id="defaultStep3" style="display: none">
+                                    <h4 class="pb-2">Étape 3 Contenu ...</h4>
+                                   {{ form_row(formFacture.description ,{'label': 'Description' , 'attr':
+	                                   {'class': 'form-control'}})}}
+                                   {{ form_row(formFacture.users ,{'label': 'users' , 'attr':
+	                                   {'class': 'form-control' }})}}
+                                   {{ form_row(formFacture.produits ,{'label': 'Produit' , 'attr':
+	                                   {'class': 'form-control'}})}}
+                                  
+                        </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    
+                                <div class="d-flex justify-content-center" >
+                                    <button class="btn btn-secondary btn-lg btn-shadow"  type="submit" >AJOUTER</button>
+                                </div>
+                            {{ form_end(formFacture) }}
+                   
+                </div>
+            </div>
+      
+         <script>
+    function myFunction() {
+    var facturVar=document.getElementById("facture_type").value;
+    var fournisseurVar = document.getElementById("fournisseur");
+    var clientVar = document.getElementById("client");
+   
+    //var next = document.getElementsByClassName("btn btn-secondary sw-btn-next");
+   if(facturVar == '0')
+   {
+       clientVar.style.display = "block";
+       fournisseurVar.style.display = "none";
+      // next.style.color = "red";
+
+      
+   }
+   else if(facturVar =="1"){
+        clientVar.style.display = "none";
+        fournisseurVar.style.display = "block";
+   }
+       
+ }
+
+
+
+</script>
+    </main>
+    {% include "includes/footer.html.twig" %}
+    <!-- script code -->
+   
+
+</body>
+
+    <script src="js/scripts.js"></script>
+
+{% endblock %}

@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Profile!{% endblock %}
+
+{% block body %}
+<body id="app-container" class="menu-default show-spinner">
+
+{% include "includes/body_dash.html.twig" %}
+<div class="space50"></div>
+ <main>
+ <div align= "center">
+      <img alt="{{user.nom}}"  src="uploads\brochures\{{user.image}}">
+ </div>
+    </main>
+{% include "includes/footer.html.twig" %}
+    <script src="js/scripts.js"></script>
+</body>
+{% endblock %}

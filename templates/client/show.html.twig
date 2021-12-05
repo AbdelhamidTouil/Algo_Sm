@@ -1,0 +1,81 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Profile!{% endblock %}
+
+{% block body %}
+<body id="app-container" class="menu-default show-spinner">
+{% include "includes/body_dash.html.twig" %}
+<div class="space50"></div>
+ <main>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12">
+                    <div class="mb-2">
+                     
+                        <div class="text-zero top-right-button-container">
+                            
+
+                             <a class="btn btn-lg btn-outline-primary" data-toggle="modal" data-target="#exampleModal" onclick="change('{{path('client_edit',{id:client.id})}}')">
+                                Modifier
+                            </a>
+                          
+                        </div>
+                    <div class="mb-2">
+                        <h1>{{client.nom}}{{client.prenom}}</h1>
+                      
+                    </div>
+                    
+                   
+                    </div>
+                     
+                  
+                    </div>
+                  
+
+                    <div class="separator mb-5"></div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="mb-4">
+                                <a href="#">
+                                    <p class="list-item-heading mb-1 color-theme-1">Coordonnées</p>
+                                    <p class="mb-1 text-muted text-small">Mobile</p>
+                                    <p class="mb-4 text-small">{{client.tel}}</p>
+                                    <p class="mb-1 text-muted text-small">Email</p>
+                                    <p class="mb-4 text-small">{{client.email}}</p>
+                                </a>
+                                <div class="separator"></div>
+                            </div>
+                            <div class="mb-4">
+                                <a href="#">
+                                    <p class="list-item-heading mb-1 color-theme-1">Info génerales</p>
+                                    <p class="mb-1 text-muted text-small">Nom complete</p>
+                                    <p class="mb-4 text-small">{{client.nom}}{{client.prenom}}</p>
+                                </a>
+                                <div class="separator"></div>
+                            </div>
+
+                            <div class="mb-4">
+                                <a href="#">
+                                    <p class="list-item-heading mb-1 color-theme-1">Situation amoureuse</p>
+                                    <p class="mb-1 text-muted text-small">Sexe</p>
+                                    <p class="mb-4 text-small">{{client.sexe}}</p>
+                                </a>
+                                <div class="separator"></div>
+                            </div>
+                         
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+   </main>
+    <!-- end main-->{% include "client/create.html.twig" %} {% include "includes/footer.html.twig" %}
+    <script src="js/changeUrl.js"></script>
+    <script src="js/scripts.js"></script>
+</body> {% endblock %}

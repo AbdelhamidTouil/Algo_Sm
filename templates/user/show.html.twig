@@ -1,0 +1,89 @@
+{% extends 'base.html.twig' %} {% block title %}Profile!{% endblock %} {% block body %}
+<body id="app-container" class="menu-default show-spinner">
+
+{% include "includes/body_dash.html.twig" %}
+
+ <main>
+        <div class="container-fluid"> 
+            <div class="row">
+           
+                <div class="col-12">
+               
+                    <div class="mb-2">
+                     
+                        <div class="text-zero top-right-button-container">
+                             <a class="btn  btn-primary" data-toggle="modal" data-target="#exampleModal" onclick="change('{{path('user_edit',{id:user.id})}}')">
+                                Modifier
+                            </a>
+                          
+                        </div>
+                    
+                        <h1>{{user.prenom}}&nbsp{{user.nom}}  </h1>
+                      <div class="col-12 col-lg-5" style="margin-left:35ch;">
+                                    <a href="{{url('photo',{id:user.id})}}" class="lightbox">
+                                        <img alt="{{user.nom}}" src="uploads\brochures\{{user.image}}"
+                                            class="img-thumbnail card-img social-profile-img">
+                                    </a>
+                                    </div>
+                       
+                    </div>
+                     
+                  
+                    </div>
+                  
+
+                    <div class="separator mb-5"></div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="mb-4">
+                                <a href="#">
+                                    <p class="list-item-heading mb-1 color-theme-1">Coordonnées</p>
+                                    <p class="mb-1 text-muted text-small">Mobile</p>
+                                    <p class="mb-4 text-small">{{user.tel}}</p>
+                                    <p class="mb-1 text-muted text-small">Email</p>
+                                    <p class="mb-4 text-small">{{user.email}}</p>
+                                </a>
+                                <div class="separator"></div>
+                            </div>
+                            <div class="mb-4">
+                                <a href="#">
+                                    <p class="list-item-heading mb-1 color-theme-1">Info génerales</p>
+                                    <p class="mb-1 text-muted text-small">Nom complete</p>
+                                    <p class="mb-4 text-small">{{user.nom}}{{user.prenom}}</p>
+                                    <p class="mb-1 text-muted text-small">Cin</p>
+                                    <p class="mb-4 text-small">{{user.cin}}</p>
+                                    <p class="mb-1 text-muted text-small">Date naissance</p>
+                           
+                                    
+                                   
+                                     <p class="mb-1 text-muted text-small">Departement</p>
+                                    <p class="mb-4 text-small">{{user.departement.title}}</p>
+                                </a>
+                                <div class="separator"></div>
+                            </div>
+
+                            <div class="mb-4">
+                                <a href="#">
+                                    <p class="list-item-heading mb-1 color-theme-1">Situation amoureuse</p>
+                                    <p class="mb-1 text-muted text-small">Sexe</p>
+                                    <p class="mb-4 text-small">{{user.sexe}}</p>
+                                </a>
+                                <div class="separator"></div>
+                            </div>
+                         
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+  </main>
+    <!-- end main-->{% include "user/register.html.twig" %} {% include "includes/footer.html.twig" %}
+    <script src="js/changeUrl.js"></script>
+    <script src="js/scripts.js"></script>
+</body> {% endblock %}

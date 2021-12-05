@@ -1,0 +1,147 @@
+
+<!-- Modal -->{{ form_start(registrationForm) }}
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title" id="exampleModalLabel">Formulaire de Utilisateur</h5>
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"> <span aria-hidden="true">&times;</span> </button>
+			</div>
+			<div class="modal-body">
+
+			<div class="form-row">
+				 <div class="col-md-4 mb-3">
+				<label class="form-group has-float-label mb-4">
+					{{form_row(registrationForm.nom ,{'attr':{'class':'form-control'}})}}
+				</label>
+				</div>
+				<div class="col-md-4 mb-3">
+				<label class="form-group has-float-label mb-4">
+					{{form_row(registrationForm.prenom ,{'attr':{'class':'form-control'}})}}
+				</label>
+				</div>
+				 <div class="col-md-4 mb-3">
+				<label class="form-group has-float-label mb-4">
+					{{form_row(registrationForm.tel ,{'attr':{'class':'form-control'}})}}
+				</label>
+				</div>
+			</div>
+
+			<div class="form-row">
+				<div class="form-group col-md-6">
+				<label class="form-group has-float-label mb-4">
+				   {{form_row(registrationForm.email ,{'attr':{'class':'form-control'}})}}
+				</label>
+				</div>
+				 <div class="form-group col-md-6">
+
+				<label class="form-group has-float-label mb-4">
+					{{form_row(registrationForm.cin ,{'attr':{'class':'form-control'}})}}
+				</label>
+				</div>
+			</div>
+
+
+			<div class="form-row">
+				 <div class="form-group col-md-6">
+
+				<label class="form-group has-float-label mb-4">
+					{{form_row(registrationForm.plainPassword ,{'attr':{'class':'form-control'}})}}
+				</label>
+				</div>
+				<div class="form-group col-md-6">
+				<label class="form-group has-float-label mb-4">
+				   {{form_row(registrationForm.confirm_password ,{'attr':{'class':'form-control'}})}}
+				</label>
+				</div>
+			</div>
+				
+			<div class="form-row">
+				<div class="form-group col-md-6">
+				<label class="form-group has-float-label mb-4">
+				   {{form_row(registrationForm.sexe ,{'attr':{'class':'form-control'}})}}
+				</label>
+				</div>
+				<div class="form-group col-md-6">
+				<label class="form-group has-float-label mb-4">
+					{{form_row(registrationForm.departement ,{'attr':{'class':'form-control'}})}}
+				</label>
+				</div>
+			</div>
+
+         <div class="form-group">
+				<label class="form-group has-float-label mb-4">
+						{{form_row(registrationForm.description ,{'attr':{'class':'form-control'}})}}
+				</label>
+		 </div>
+
+			<div class="form-row">
+				<div class="custom-file ">
+						{{form_row(registrationForm.image ,{'attr':{'class':'custom-file-input'}})}}
+						<label class="custom-file-label" for="customFile">Choisir un fichier</label>
+				</div>
+			</div>
+			<br><br>
+
+           
+		 
+				
+
+			<div class="form-group">
+				<label class="form-check-label" for="gridCheck">
+					Roles
+				</label>
+				<div class="form-check">
+				{{form_row(registrationForm.roles,{'attr':{'class':'form-check-input'}})}}
+				</div>
+			</div>
+<br><br>
+		<div class="form-group">
+			<div class="form-check">
+			{{form_row(registrationForm.agreeTerms,{'attr':{'class':'form-check-input'}})}}
+			<label class="form-check-label" for="gridCheck">
+				accepter les conditions
+			</label>
+			</div>
+		</div>
+
+
+
+
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+				<div class="d-flex justify-content-start align-items-center">
+					<button class="btn btn-primary  btn-shadow" type="submit">AJOUTER</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</div> {{ form_end(registrationForm) }}
+
+
+
+		<!-- script code -->
+		<script>
+		function compaire_password()
+		{
+			var ajouter = document.getElementById('ajouter');
+		    var password = document.getElementById('registration_form_plainPassword').value;
+			var confirm = document.getElementById('registration_form_confirm_password').value;
+
+			if(confirm != password)
+			{
+				alert('verifier password');
+			}
+	    }
+		</script>
+		<!-- end script code-->
+
+
+
+
+
+
+
+
+	

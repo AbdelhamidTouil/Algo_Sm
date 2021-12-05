@@ -1,0 +1,69 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Profile!{% endblock %}
+
+{% block body %}
+<body id="app-container" class="menu-default show-spinner">
+{% include "includes/body_dash.html.twig" %}
+<div class="space50"></div>
+ <main>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12">
+                    <div class="mb-2">
+                     
+                        <div class="text-zero top-right-button-container">
+                            
+
+                             <a class="btn btn-lg btn-outline-primary" data-toggle="modal" data-target="#exampleModal" onclick="change('{{path('stock_edit',{id:stock.id})}}')">
+                                Modifier
+                            </a>
+                          
+                        </div>
+                    <div class="mb-2">
+                        <h1>Stock</h1>
+                      
+                    </div>
+                    
+                   
+                    </div>
+                     
+                  
+                    </div>
+                  
+
+                    <div class="separator mb-5"></div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                       
+  <div class="card-body">
+                            <div class="mb-4">
+                                <a href="#">
+                                    <p class="list-item-heading mb-1 color-theme-1">info</p>
+                                    <p class="mb-1 text-muted text-small">produit</p>
+                                   
+                                         <p class="mb-4 text-small">{{stock.produits.title}}</p>
+                                   
+                                   
+                                    <p class="mb-1 text-muted text-small">quantity</p>
+                                    <p class="mb-4 text-small">{{stock.quantite}}</p>
+                                </a>
+                                <div class="separator"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+   </main>
+    <!-- end main-->{% include "stock/create.html.twig" %} {% include "includes/footer.html.twig" %}
+    <script src="js/changeUrl.js"></script>
+    <script src="js/scripts.js"></script>
+</body> {% endblock %}
+
+
